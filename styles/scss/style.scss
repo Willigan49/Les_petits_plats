@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 @import "./variable_overrides";
+@import "./mixin";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 .grey-bg,
@@ -15,18 +16,30 @@
     top: 25%;
 }
 
+.filters{
+    gap: 15px;
+    .ingredients{
+        @include btn-dropdown(cornflowerblue);
+     }
+     
+     .appareils{
+         @include btn-dropdown(rgb(117, 189, 117));
+     }
+     
+     .ustensiles{
+         @include btn-dropdown($primary);
+     }
+}
+
 .card {
     .card-header {
         height: 150px;
-        background-color: darken($color: white, $amount: 25);
+        background-color: darken($color: $secondary, $amount: 25);
     }
-
     .card-body {
-
         ul,
         p {
             font-size: 0.8em;
         }
     }
-
 }

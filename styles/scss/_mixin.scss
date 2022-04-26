@@ -1,0 +1,9 @@
+@mixin btn-dropdown($bg-color) {
+    #btn-filter, ul {
+        background-color: $bg-color;
+        color: $secondary;
+        a{
+            color: $secondary;
+        }
+    }
+}

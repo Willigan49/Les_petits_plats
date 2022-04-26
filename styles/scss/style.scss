@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import "./variable_overrides";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.grey-bg,
+.grey-bg:focus {
+    background-color: darken($color: white, $amount: 10);
+    border: none;
+    padding: 20px;
+}
+
+.search {
+    font-size: 1.3em;
+    right: 30px;
+    top: 25%;
+}
+
+.card {
+    .card-header {
+        height: 150px;
+        background-color: darken($color: white, $amount: 25);
+    }
+
+    .card-body {
+
+        ul,
+        p {
+            font-size: 0.8em;
+        }
+    }
+
+}

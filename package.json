@@ -1,4 +1,21 @@
 {
+  "name": "les-petits-plats",
+  "version": "1.0.0",
+  "description": "OpenClassroom Project 7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Willigan49/petits_plats.git"
+  },
+  "author": "Guillaume GERNIGON",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Willigan49/petits_plats/issues"
+  },
+  "homepage": "https://github.com/Willigan49/petits_plats#readme",
   "dependencies": {
     "bootstrap": "^5.1.3",
     "jquery": "^3.6.0"

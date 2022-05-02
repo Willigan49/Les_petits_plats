@@ -11162,6 +11162,9 @@ textarea.form-control-lg {
   height: 150px;
   background-color: #bfbfbf;
 }
+.card .card-body {
+  height: 500px;
+}
 .card .card-body ul,
 .card .card-body p {
   font-size: 0.8em;

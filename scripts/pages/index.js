@@ -1,4 +1,5 @@
-function displayRecipe(id, name, time, description, ingredients) {
+function displayRecipe(recipe) {
+  const { id, name, time, description, ingredients } = recipe;
   recipesContainer.innerHTML += `<div class="col-4">
   <article class="card">
     <div class="card-header"></div>
@@ -50,7 +51,7 @@ function displayRecipe(id, name, time, description, ingredients) {
 
 function displayAllRecipes(){
   recipes.forEach((r) => {
-    displayRecipe(r.id, r.name, r.time, r.description, r.ingredients);
+    displayRecipe(r);
   });
 }
 
@@ -61,7 +62,7 @@ function search(word) {
       recipes[i].name.toLowerCase().includes(word.toLowerCase()) ||
       recipes[i].description.toLowerCase().includes(word.toLowerCase())
     ) {
-      displayRecipe(recipes[i].id, recipes[i].name, recipes[i].time, recipes[i].description, recipes[i].ingredients);
+      displayRecipe(recipes[i]);
     } else {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
         if (
@@ -69,13 +70,7 @@ function search(word) {
             .toLowerCase()
             .includes(word.toLowerCase())
         ) {
-          displayRecipe(
-            recipes[i].id,
-            recipes[i].name,
-            recipes[i].time,
-            recipes[i].description,
-            recipes[i].ingredients
-          );
+          displayRecipe(recipes[i]);
           j = recipes[i].ingredients.length;
         }
       }

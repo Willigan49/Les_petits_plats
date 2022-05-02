@@ -1,4 +1,5 @@
-function displayRecipe(id, name, time, description, ingredients) {
+function displayRecipe(recipe) {
+  let { id, name, time, description, ingredients } = recipe;
   recipesContainer.innerHTML += `<div class="col-4">
   <article class="card">
     <div class="card-header"></div>
@@ -50,37 +51,17 @@ function displayRecipe(id, name, time, description, ingredients) {
 
 function displayAllRecipes(){
   recipes.forEach((r) => {
-    displayRecipe(r.id, r.name, r.time, r.description, r.ingredients);
+    displayRecipe(r);
   });
 }
 
 function search(word) {
   recipesContainer.innerHTML = "";
-  for (let i = 0; i < recipes.length; i++) {
-    if (
-      recipes[i].name.toLowerCase().includes(word.toLowerCase()) ||
-      recipes[i].description.toLowerCase().includes(word.toLowerCase())
-    ) {
-      displayRecipe(recipes[i].id, recipes[i].name, recipes[i].time, recipes[i].description, recipes[i].ingredients);
-    } else {
-      for (let j = 0; j < recipes[i].ingredients.length; j++) {
-        if (
-          recipes[i].ingredients[j].ingredient
-            .toLowerCase()
-            .includes(word.toLowerCase())
-        ) {
-          displayRecipe(
-            recipes[i].id,
-            recipes[i].name,
-            recipes[i].time,
-            recipes[i].description,
-            recipes[i].ingredients
-          );
-          j = recipes[i].ingredients.length;
-        }
-      }
+  recipes.map((recipe) => {
+    if (recipe.name.toLowerCase().includes(word.toLowerCase()) || recipe.description.toLowerCase().includes(word.toLowerCase()) || recipe.ingredients.some((ing) => ing.ingredient.toLowerCase().includes(word.toLowerCase()))) {
+      displayRecipe(recipe);
     }
-  }
+  });
 }
 
 const recipesContainer = document.getElementById("recipes-container");

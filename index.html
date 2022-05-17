@@ -37,70 +37,56 @@
         </div>
       </header>
       <main>
+        <div class="tag-list d-flex gap-3 my-3"></div>
         <div class="row mb-3 mt-3">
           <div class="filters d-flex flex-row flex-wrap">
-            <div class="dropdown ingredients">
+            <div class="dropdown ingredients col-1">
               <button
                 class="btn dropdown-toggle p-3"
                 type="button"
-                id="btn-filter"
+                id="btn-ingredients"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Ingredients
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Rechercher un ingrédient"
+                  aria-label="Search"
+                  value="Ingrédients"
+                />
               </button>
-              <ul
-                class="dropdown-menu p-3"
-                aria-labelledby="dropdownMenuButton1"
-              >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="ingredient-container list-unstyled"></ul>
+              </div>
             </div>
-            <div class="dropdown appareils">
+            <div class="dropdown appareils col-1">
               <button
                 class="btn dropdown-toggle p-3"
                 type="button"
-                id="btn-filter"
+                id="btn-appareils"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Appareils
               </button>
-              <ul
-                class="dropdown-menu p-3"
-                aria-labelledby="dropdownMenuButton1"
-              >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="appareil-container list-unstyled"></ul>
+              </div>
             </div>
-            <div class="dropdown ustensiles">
+            <div class="dropdown ustensils col-1">
               <button
                 class="btn dropdown-toggle p-3"
                 type="button"
-                id="btn-filter"
+                id="btn-ustensils"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Ustensiles
               </button>
-              <ul
-                class="dropdown-menu p-3"
-                aria-labelledby="dropdownMenuButton1"
-              >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="ustensil-container list-unstyled"></ul>
+              </div>
             </div>
           </div>
         </div>
@@ -108,6 +94,8 @@
       </main>
     </div>
     <script src="/data/recipes.js"></script>
+    <script src="/scripts/utils/recipeCard.js"></script>
+    <script src="/scripts/utils/filters.js"></script>
     <script src="/scripts/pages/index.js"></script>
     <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

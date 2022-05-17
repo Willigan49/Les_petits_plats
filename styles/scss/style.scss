@@ -26,7 +26,7 @@
     @include btn-dropdown(rgb(117, 189, 117));
   }
 
-  .ustensiles {
+  .ustensils {
     @include btn-dropdown($primary);
   }
 }
@@ -43,4 +43,38 @@
       font-size: 0.8em;
     }
   }
+}
+
+.btn {
+  width: 100%;
+  input {
+    border: none;
+    border-radius: 0;
+    background-color: cornflowerblue;
+    color: white;
+    display: inline;
+    height: 20px;
+    width: 90%;
+    &::placeholder {
+      color: darken($color: white, $amount: 10);
+    }
+    &:focus {
+      border: none;
+      border-radius: 0;
+      background-color: cornflowerblue;
+      color: white;
+    }
+  }
+}
+
+.col-1 {
+  width: 12%;
+}
+
+.tag {
+  background-color: pink;
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
 }

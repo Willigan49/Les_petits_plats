@@ -1,3 +1,4 @@
+const filtersType = ["ingredients", "appareils", "ustensils"];
 let filterContainer;
 
 function createFilterLists(type) {
@@ -56,25 +57,29 @@ function addEventButtons(type) {
   });
 }
 
-function createTags() {
-  const options = document.querySelectorAll(".dropdown-item");
-  options.forEach((element) => {
-    element.addEventListener("click", () => {
-      let text = element.innerText.replace(/\s/g, "");
-      const tag = `<div class="tag d-flex justify-content-around align-items-center" id="tag-${text}">
-    <span class="tag-title">${element.innerText}</span>
+function createTag(element) {
+  let text = element.innerText.replace(/\s/g, "");
+  const tag = `<div class="tag d-flex justify-content-around align-items-center" id="tag-${text}">
+    <span class="tag-${text}">${element.innerText}</span>
     <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
     </div>`;
-      const tagList = document.querySelector(".tag-list");
-      tagList.innerHTML += tag;
-      const tags = document.querySelectorAll(".cross");
-      tags.forEach((tag) => {
-        tag.addEventListener("click", () => {
-          let tagName = tag.id.split("-")[1];
-          const currentTag = document.getElementById(`tag-${tagName}`);
-          currentTag.remove();
-        });
-      });
+  const tagList = document.querySelector(".tag-list");
+  tagList.innerHTML += tag;
+  addToSearchArray(element.innerText, 'tag');
+  const tags = document.querySelectorAll(".cross");
+  tags.forEach((tag) => {
+    tag.addEventListener("click", () => {
+      deleteTag(tag);
     });
   });
+}
+
+function deleteTag(tag) {
+  let tagName = tag.id.split("-")[1];
+  let currentTagTitle = document.querySelector(`.tag-${tagName}`);
+  const index = searchArray.indexOf(currentTagTitle.innerText);
+  searchArray.splice(index, 1);
+  search(searchArray);
+  const currentTag = document.getElementById(`tag-${tagName}`);
+  currentTag.remove();
 }

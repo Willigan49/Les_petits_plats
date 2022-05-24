@@ -117,7 +117,7 @@ function createIngredientButton() {
     } else {
       createFilterLists(recipes);
     }
-  });
+  })
 }
 
 function createAppareilButton() {
@@ -162,30 +162,19 @@ function createFilterLists(recipes, search) {
   const applianceArray = [];
   const ustensilArray = [];
   if (search) {
-    recipes.forEach((recipe) => {
-      let { ingredients, appliance, ustensils } = recipe;
-      ingredients.forEach((i) => {
-        if (i.ingredient.includes(search)) {
-          ingredientsArray.push(i.ingredient);
-        }
-      });
-      applianceArray.push(appliance);
-      ustensils.forEach((u) => {
-        ustensilArray.push(u);
-      });
+    console.log(true);
+    //ingredientsArray.push(i.ingredient);
+  } else
+  recipes.forEach((recipe) => {
+    let { ingredients, appliance, ustensils } = recipe;
+    ingredients.forEach((i) => {
+      ingredientsArray.push(i.ingredient);
     });
-  } else {
-    recipes.forEach((recipe) => {
-      let { ingredients, appliance, ustensils } = recipe;
-      ingredients.forEach((i) => {
-        ingredientsArray.push(i.ingredient);
-      });
-      applianceArray.push(appliance);
-      ustensils.forEach((u) => {
-        ustensilArray.push(u);
-      });
+    applianceArray.push(appliance);
+    ustensils.forEach((u) => {
+      ustensilArray.push(u);
     });
-  }
+  });
   let filteredUstensilArray = [];
   filteredUstensilArray = removeDuplication(applianceArray);
   ustensilContainer.innerHTML = "";

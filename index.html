@@ -39,7 +39,7 @@
       <main>
         <div class="tag-list d-flex gap-3 my-3"></div>
         <div class="row mb-3 mt-3">
-          <div class="filters d-flex flex-row flex-wrap">
+          <div class="filters d-flex flex-row flex-wrap btn-container">
             <div class="dropdown ingredients col-1">
               <button
                 class="btn dropdown-toggle p-3"
@@ -47,16 +47,14 @@
                 id="btn-ingredients"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              >
+              >Ingrédients</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <input
-                  class="form-control"
+                  class="ingredient-search form-control"
                   type="text"
                   placeholder="Rechercher un ingrédient"
                   aria-label="Search"
-                  value="Ingrédients"
                 />
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <ul class="ingredient-container list-unstyled"></ul>
               </div>
             </div>

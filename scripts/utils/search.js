@@ -1,6 +1,4 @@
-let searchArray = [];
-
-function addToSearchArray(element, type) {
+/*function addToSearchArray(element, type) {
   if (type === "globalSearch") {
     let index = searchArray.findIndex((s) => {
       return s.type === "globalSearch";
@@ -42,4 +40,22 @@ function search(searchArray) {
     recipesContainer.innerHTML = "";
     displayAllRecipes();
   }
+}
+ */
+
+function createRecipeSearchArray(word) {
+  recipesContainer.innerHTML = "";
+  const recipeArray = [];
+  recipes.forEach((recipe) => {
+    if (
+      recipe.name.toLowerCase().includes(word.toLowerCase()) ||
+      recipe.description.toLowerCase().includes(word.toLowerCase()) ||
+      recipe.ingredients.forEach((i) => {
+        i.ingredient.toLowerCase().includes(word.toLowerCase());
+      })
+    ) {
+      recipeArray.push(recipe);
+    }
+  });
+  return recipeArray;
 }

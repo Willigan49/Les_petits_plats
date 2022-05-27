@@ -78,32 +78,32 @@ function createFilterByType(recipes) {
   listItem.forEach((item) => {
     item.addEventListener("click", () => {
       createTag(item);
-    })
-  })
+    });
+  });
 }
 
 function createTag(element) {
-  let text = element.innerText.replace(/\s/g, "");
-  const tag = `<div class="tag d-flex justify-content-around align-items-center" id="tag-${text}">
-    <span class="tag-${text}">${element.innerText}</span>
-    <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
-    </div>`;
-  const tagList = document.querySelector(".tag-list");
-  tagList.innerHTML += tag;
-  /* const tags = document.querySelectorAll(".cross");
+  let filterArray = [];
+  filterArray.push(element.innerText);
+  filterArray.forEach((filter) => {
+    filterArray = [];
+    let text = filter.replace(/\s/g, "");
+    const tag = `<div class="tag d-flex justify-content-around align-items-center" id="tag-${text}">
+      <span class="tag-${text}">${filter}</span>
+      <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
+      </div>`;
+    const tagList = document.querySelector(".tag-list");
+    tagList.innerHTML += tag;
+  });
+  const tags = document.querySelectorAll(".cross");
   tags.forEach((tag) => {
     tag.addEventListener("click", () => {
-      deleteTag(tag);
+      let tagName = tag.id.split("-")[1];
+      let currentTagTitle = document.querySelector(`.tag-${tagName}`);
+      const index = filterArray.indexOf(currentTagTitle.innerText);
+      filterArray.splice(index, 1);
+      const currentTag = document.getElementById(`tag-${tagName}`);
+      currentTag.remove();
     });
-  }); */
+  });
 }
-
-/* function deleteTag(tag) {
-  let tagName = tag.id.split("-")[1];
-  let currentTagTitle = document.querySelector(`.tag-${tagName}`);
-  const index = searchArray.indexOf(currentTagTitle.innerText);
-  searchArray.splice(index, 1);
-  search(searchArray);
-  const currentTag = document.getElementById(`tag-${tagName}`);
-  currentTag.remove();
-} */

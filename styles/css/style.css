@@ -11145,13 +11145,13 @@ textarea.form-control-lg {
 .filters .ingredients ul a {
   color: white;
 }
-.filters .appareils .btn,
-.filters .appareils ul {
+.filters .appliance .btn,
+.filters .appliance ul {
   background-color: rgb(117, 189, 117);
   color: white;
 }
-.filters .appareils .btn a,
-.filters .appareils ul a {
+.filters .appliance .btn a,
+.filters .appliance ul a {
   color: white;
 }
 .filters .ustensils .btn,

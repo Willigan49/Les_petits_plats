@@ -47,29 +47,37 @@
                 id="btn-ingredients"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              >Ingrédients</button>
+              >
+                Ingrédients
+              </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <input
-                  class="ingredient-search form-control"
+                  class="ingredients-search form-control"
                   type="text"
                   placeholder="Rechercher un ingrédient"
                   aria-label="Search"
                 />
-                <ul class="ingredient-container list-unstyled"></ul>
+                <ul class="ingredients-container list-unstyled"></ul>
               </div>
             </div>
-            <div class="dropdown appareils col-1">
+            <div class="dropdown appliance col-1">
               <button
                 class="btn dropdown-toggle p-3"
                 type="button"
-                id="btn-appareils"
+                id="btn-appliance"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Appareils
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <ul class="appareil-container list-unstyled"></ul>
+                <input
+                  class="appliance-search form-control"
+                  type="text"
+                  placeholder="Rechercher un ingrédient"
+                  aria-label="Search"
+                />
+                <ul class="appliance-container list-unstyled"></ul>
               </div>
             </div>
             <div class="dropdown ustensils col-1">
@@ -83,7 +91,13 @@
                 Ustensiles
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <ul class="ustensil-container list-unstyled"></ul>
+                <input
+                  class="ustensils-search form-control"
+                  type="text"
+                  placeholder="Rechercher un ingrédient"
+                  aria-label="Search"
+                />
+                <ul class="ustensils-container list-unstyled"></ul>
               </div>
             </div>
           </div>
@@ -92,7 +106,7 @@
       </main>
     </div>
     <script src="/data/recipes.js"></script>
-    <script src="/scripts/utils/recipeCard.js"></script>
+    <script src="/scripts/utils/recipes.js"></script>
     <script src="/scripts/utils/filters.js"></script>
     <script src="/scripts/utils/search.js"></script>
     <script src="/scripts/pages/index.js"></script>

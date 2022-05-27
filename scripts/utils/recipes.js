@@ -1,6 +1,13 @@
 const recipesContainer = document.getElementById("recipes-container");
 
-function createRecipeCard(recipesContainer, recipe) {
+function displayAllRecipes() {
+  recipesContainer.innerHTML = "";
+  recipes.forEach((r) => {
+    createRecipeCard(r);
+  });
+}
+
+function createRecipeCard(recipe) {
   let { id, name, time, description, ingredients } = recipe;
   recipesContainer.innerHTML += `<div class="col-4">
     <article class="card">
@@ -48,11 +55,5 @@ function createRecipeCard(recipesContainer, recipe) {
           ${i.ingredient}
         </li>`;
     }
-  });
-}
-
-function displayAllRecipes() {
-  recipes.forEach((r) => {
-    createRecipeCard(recipesContainer, r);
   });
 }

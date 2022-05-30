@@ -1,3 +1,5 @@
+let filterArray = [];
+
 function createFilterByType(recipes) {
   const filterType = ["ingredients", "appliance", "ustensils"];
   filterType.forEach((type) => {
@@ -7,23 +9,23 @@ function createFilterByType(recipes) {
   function createFilterLists(type, recipes) {
     const listContainer = document.querySelector(`.${type}-container`);
     listContainer.innerHTML = "";
-    const array = [];
+    const tagArray = [];
     recipes.forEach((recipe) => {
       let { ingredients, appliance, ustensils } = recipe;
       switch (type) {
         case "ingredients":
           ingredients.forEach((i) => {
-            array.push(i.ingredient);
+            tagArray.push(i.ingredient);
           });
           break;
 
         case "appliance":
-          array.push(appliance);
+          tagArray.push(appliance);
           break;
 
         case "ustensils":
-          ustensils.forEach((u) => {
-            array.push(u);
+          ustensils.forEach((ustensil) => {
+            tagArray.push(ustensil);
           });
           break;
 
@@ -32,7 +34,7 @@ function createFilterByType(recipes) {
       }
     });
     let filterArray = [];
-    filterArray = removeDuplication(array);
+    filterArray = removeDuplication(tagArray);
     filterArray.forEach((filter) => {
       listContainer.innerHTML += `<li><button class="dropdown-item">${filter}</button></li>`;
     });
@@ -83,16 +85,15 @@ function createFilterByType(recipes) {
 }
 
 function createTag(element) {
-  let filterArray = [];
+  const tagList = document.querySelector(".tag-list");
+  tagList.innerHTML = "";
   filterArray.push(element.innerText);
   filterArray.forEach((filter) => {
-    filterArray = [];
     let text = filter.replace(/\s/g, "");
     const tag = `<div class="tag d-flex justify-content-around align-items-center" id="tag-${text}">
-      <span class="tag-${text}">${filter}</span>
-      <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
-      </div>`;
-    const tagList = document.querySelector(".tag-list");
+    <span class="tag-${text}">${filter}</span>
+    <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
+    </div>`;
     tagList.innerHTML += tag;
   });
   const tags = document.querySelectorAll(".cross");
@@ -105,5 +106,10 @@ function createTag(element) {
       const currentTag = document.getElementById(`tag-${tagName}`);
       currentTag.remove();
     });
+  });
+  console.log(filterArray);
+  let result = createRecipeSearchArray("", filterArray);
+  result.forEach((recipe) => {
+    createRecipeCard(recipe);
   });
 }

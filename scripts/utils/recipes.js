@@ -2,8 +2,8 @@ const recipesContainer = document.getElementById("recipes-container");
 
 function displayAllRecipes() {
   recipesContainer.innerHTML = "";
-  recipes.forEach((r) => {
-    createRecipeCard(r);
+  recipes.forEach((recipe) => {
+    createRecipeCard(recipe);
   });
 }
 
@@ -28,7 +28,7 @@ function createRecipeCard(recipe) {
             <ul class="list-unstyled ingredient-list-${id}">
             </ul>
           </div>
-          <div class="col">
+          <div class="col description">
             <p>
               ${description}
             </p>

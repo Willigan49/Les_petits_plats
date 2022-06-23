@@ -1,68 +1,143 @@
 const inputSearch = document.querySelector(".input-search");
+let globalSearch = [];
+let tagSearch = [];
 
 inputSearch.addEventListener("keyup", () => {
-  if (inputSearch.value.length >= 3) {
-    recipeSearchArray = createRecipeSearchArray(inputSearch.value);
-    recipeSearchArray.forEach((recipe) => {
-      createRecipeCard(recipe);
+  searchRecipes(inputSearch.value);
+});
+
+function searchRecipes(searchValue) {
+  let tags = [];
+  let tagList = document.querySelectorAll(".tag-item");
+  tagList.forEach((tag) => {
+    tags.push(tag.innerText);
+  });
+  let lastTag = tags[tags.length - 1];
+
+  if (searchValue.length >= 3 && tags.length == 0) {
+    globalSearch = [];
+    recipes.forEach((recipe) => {
+      if (
+        recipe.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        recipe.description.toLowerCase().includes(searchValue.toLowerCase()) ||
+        recipe.ingredients.forEach((i) => {
+          i.ingredient.toLowerCase().includes(searchValue.toLowerCase());
+        })
+      ) {
+        globalSearch.push(recipe);
+      }
     });
-    createFilterByType(recipeSearchArray);
-  } else {
+    displayRecipes(globalSearch);
+    createFilterByType(globalSearch);
+  } else if (searchValue.length < 3 && tags.length >= 1) {
+    if (searchValue.length < 3 && tags.length < 2) {
+      tagSearch = [];
+      recipes.forEach((recipe) => {
+        recipe.ingredients.find((ing) => {
+          if (ing.ingredient.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      recipes.forEach((recipe) => {
+        if (recipe.appliance.toLowerCase() == lastTag.toLowerCase()) {
+          tagSearch.push(recipe);
+        }
+      });
+      recipes.forEach((recipe) => {
+        recipe.ustensils.find((ust) => {
+          if (ust.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      displayRecipes(tagSearch);
+      createFilterByType(tagSearch);
+    } else {
+      tagSearch.forEach((recipe) => {
+        recipe.ingredients.find((ing) => {
+          if (ing.ingredient.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch = [];
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      tagSearch.forEach((recipe) => {
+        if (recipe.appliance.toLowerCase() == lastTag.toLowerCase()) {
+          tagSearch = [];
+          tagSearch.push(recipe);
+        }
+      });
+      tagSearch.forEach((recipe) => {
+        recipe.ustensils.find((ust) => {
+          if (ust.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch = [];
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      displayRecipes(tagSearch);
+      createFilterByType(tagSearch);
+    }
+  } else if (searchValue.length >= 3 && tags.length >= 1) {
+    if (tags.length == 1) {
+      tagSearch = [];
+      globalSearch.forEach((recipe) => {
+        recipe.ingredients.find((ing) => {
+          if (ing.ingredient.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      globalSearch.forEach((recipe) => {
+        if (recipe.appliance.toLowerCase() == lastTag.toLowerCase()) {
+          tagSearch.push(recipe);
+        }
+      });
+      globalSearch.forEach((recipe) => {
+        recipe.ustensils.find((ust) => {
+          if (ust.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      displayRecipes(tagSearch);
+      createFilterByType(tagSearch);
+    } else {
+      tagSearch.forEach((recipe) => {
+        recipe.ingredients.find((ing) => {
+          if (ing.ingredient.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch = [];
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      tagSearch.forEach((recipe) => {
+        if (recipe.appliance.toLowerCase() == lastTag.toLowerCase()) {
+          tagSearch = [];
+          tagSearch.push(recipe);
+        }
+      });
+      tagSearch.forEach((recipe) => {
+        recipe.ustensils.find((ust) => {
+          if (ust.toLowerCase() == lastTag.toLowerCase()) {
+            tagSearch = [];
+            tagSearch.push(recipe);
+          }
+        });
+      });
+      displayRecipes(tagSearch);
+      createFilterByType(tagSearch);
+    }
+  } else if (searchValue.length < 3 && tags.length == 0) {
     displayAllRecipes();
     createFilterByType(recipes);
   }
-});
 
-function createRecipeSearchArray(searchValue, tags) {
-  recipesContainer.innerHTML = "";
-  const recipeArray = [];
-  if (tags) {
+  function displayRecipes(recipes) {
+    recipesContainer.innerHTML = "";
     recipes.forEach((recipe) => {
-      let isNameContainTag = tags.every((t) => {
-        let test = recipe.ingredients.find(
-          (ing) => ing.ingredient.toLowerCase() == t.toLowerCase()
-        );
-        return !!test;
-      });
-      console.log(isNameContainTag);
-      if (isNameContainTag) {
-        recipeArray.push(recipe);
-      }
+      createRecipeCard(recipe);
     });
-    return recipeArray;
   }
-  recipes.forEach((recipe) => {
-    if (
-      recipe.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-      recipe.description.toLowerCase().includes(searchValue.toLowerCase()) ||
-      recipe.ingredients.forEach((i) => {
-        i.ingredient.toLowerCase().includes(searchValue.toLowerCase());
-      })
-    ) {
-      recipeArray.push(recipe);
-    }
-  });
-  return recipeArray;
 }
-
-/* if (searchValue && tags) {
-  tags.forEach((tag) => {
-    recipes.forEach((recipe) => {
-      if (
-        (recipe.name.toLowerCase().includes(searchValue.toLowerCase()) &&
-          recipe.name.toLowerCase().includes(tag.toLowerCase())) ||
-        (recipe.description
-          .toLowerCase()
-          .includes(searchValue.toLowerCase()) &&
-          recipe.description.toLowerCase().includes(tag.toLowerCase())) ||
-        recipe.ingredients.forEach((i) => {
-          i.ingredient.toLowerCase().includes(searchValue.toLowerCase());
-        }) ||
-        recipe.ingredients.forEach((i) => {
-          i.ingredient.toLowerCase().includes(tag.toLowerCase());
-        })
-      ) {
-        recipeArray.push(recipe);
-      }
-    });
-  }); */

@@ -11169,7 +11169,13 @@ textarea.form-control-lg {
   background-color: #bfbfbf;
 }
 .card .card-body {
-  height: 500px;
+  height: 350px;
+}
+.card .card-body .description p {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card .card-body ul,
 .card .card-body p {
@@ -11202,12 +11208,34 @@ textarea.form-control-lg {
   width: 12%;
 }
 
-.tag {
-  background-color: pink;
+.tag-ingredients {
+  background-color: cornflowerblue;
   width: 120px;
   border-radius: 3px;
   padding: 7px;
   display: block;
+  color: white;
+  height: 50px;
+}
+
+.tag-appliance {
+  background-color: rgb(117, 189, 117);
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  color: white;
+  height: 50px;
+}
+
+.tag-ustensils {
+  background-color: #d04f4f;
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  color: white;
+  height: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -37,7 +37,15 @@
     background-color: darken($color: $secondary, $amount: 25);
   }
   .card-body {
-    height: 500px;
+    height: 350px;
+    .description {
+      p {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
     ul,
     p {
       font-size: 0.8em;
@@ -71,10 +79,14 @@
   width: 12%;
 }
 
-.tag {
-  background-color: pink;
-  width: 120px;
-  border-radius: 3px;
-  padding: 7px;
-  display: block;
+.tag-ingredients {
+  @include tag(cornflowerblue);
+}
+
+.tag-appliance {
+  @include tag(rgb(117, 189, 117));
+}
+
+.tag-ustensils {
+  @include tag($primary);
 }

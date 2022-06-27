@@ -10,6 +10,7 @@
 }
 
 @mixin tag($bg-color) {
+  color: white;
   background-color: $bg-color;
   width: 120px;
   border-radius: 3px;

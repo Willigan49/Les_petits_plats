@@ -11239,6 +11239,7 @@ textarea.form-control-lg {
 }
 
 .tag-ingredients {
+  color: white;
   background-color: cornflowerblue;
   width: 120px;
   border-radius: 3px;
@@ -11248,6 +11249,7 @@ textarea.form-control-lg {
 }
 
 .tag-appliance {
+  color: white;
   background-color: rgb(117, 189, 117);
   width: 120px;
   border-radius: 3px;
@@ -11257,6 +11259,7 @@ textarea.form-control-lg {
 }
 
 .tag-ustensils {
+  color: white;
   background-color: #d04f4f;
   width: 120px;
   border-radius: 3px;

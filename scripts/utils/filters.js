@@ -79,18 +79,44 @@ function createFilterByType(recipes) {
   }
 
   function changeSizeButton(type) {
-    const button = document.getElementById(`btn-${type}`);
+    const button = document.querySelector(`.btn-${type}`);
+    const searchFilter = document.querySelector(`.${type}-search`);
+    addOnclickEvent(button, searchFilter);
+    addOnclickEvent(searchFilter, searchFilter);
     const column = document.querySelector(`.${type}`);
+    let word = "";
+    switch (type) {
+      case "ingredients":
+        word = "ingrédients";
+        break;
 
-    button.onclick = () => {
-      column.classList.remove("col-1");
-      column.classList.add("col-4");
-    };
+      case "appliance":
+        word = "appareils";
+        break;
+
+      case "ustensils":
+        word = "ustensiles";
+        break;
+
+      default:
+        break;
+    }
+
+    function addOnclickEvent(element, searchFilter) {
+      element.onclick = () => {
+        column.classList.remove("col-1");
+        column.classList.add("col-6");
+        searchFilter.placeholder = `Rechercher des ${word}`;
+      };
+    }
 
     document.addEventListener("click", (event) => {
       if (event.target !== button) {
-        column.classList.remove("col-4");
-        column.classList.add("col-1");
+        if (event.target !== searchFilter) {
+          column.classList.remove("col-6");
+          column.classList.add("col-1");
+          searchFilter.placeholder = `${word}`;
+        }
       }
     });
   }

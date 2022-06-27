@@ -11163,6 +11163,107 @@ textarea.form-control-lg {
 .filters .ustensils ul a {
   color: white;
 }
+.filters .btn-ingredients {
+  width: 100%;
+}
+.filters .btn-ingredients input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: cornflowerblue;
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.filters .btn-ingredients input::placeholder {
+  color: white;
+}
+.filters .btn-ingredients input:focus {
+  border: none;
+  border-radius: 0;
+}
+.filters .btn-appliance {
+  width: 100%;
+}
+.filters .btn-appliance input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: rgb(117, 189, 117);
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.filters .btn-appliance input::placeholder {
+  color: white;
+}
+.filters .btn-appliance input:focus {
+  border: none;
+  border-radius: 0;
+}
+.filters .btn-ustensils {
+  width: 100%;
+}
+.filters .btn-ustensils input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: #d04f4f;
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.filters .btn-ustensils input::placeholder {
+  color: white;
+}
+.filters .btn-ustensils input:focus {
+  border: none;
+  border-radius: 0;
+}
+.filters .col-1 {
+  width: 12%;
+}
+.filters .dropdown-menu {
+  padding: 0;
+  width: 100%;
+}
+.filters .dropdown-menu ul {
+  height: 1100px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.filters button {
+  color: white;
+}
+
+.tag-ingredients {
+  background-color: cornflowerblue;
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  height: 50px;
+}
+
+.tag-appliance {
+  background-color: rgb(117, 189, 117);
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  height: 50px;
+}
+
+.tag-ustensils {
+  background-color: #d04f4f;
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  height: 50px;
+}
 
 .card .card-header {
   height: 150px;
@@ -11180,62 +11281,6 @@ textarea.form-control-lg {
 .card .card-body ul,
 .card .card-body p {
   font-size: 0.8em;
-}
-
-.btn {
-  width: 100%;
-}
-.btn input {
-  border: none;
-  border-radius: 0;
-  background-color: cornflowerblue;
-  color: white;
-  display: inline;
-  height: 20px;
-  width: 90%;
-}
-.btn input::placeholder {
-  color: #e6e6e6;
-}
-.btn input:focus {
-  border: none;
-  border-radius: 0;
-  background-color: cornflowerblue;
-  color: white;
-}
-
-.col-1 {
-  width: 12%;
-}
-
-.tag-ingredients {
-  background-color: cornflowerblue;
-  width: 120px;
-  border-radius: 3px;
-  padding: 7px;
-  display: block;
-  color: white;
-  height: 50px;
-}
-
-.tag-appliance {
-  background-color: rgb(117, 189, 117);
-  width: 120px;
-  border-radius: 3px;
-  padding: 7px;
-  display: block;
-  color: white;
-  height: 50px;
-}
-
-.tag-ustensils {
-  background-color: #d04f4f;
-  width: 120px;
-  border-radius: 3px;
-  padding: 7px;
-  display: block;
-  color: white;
-  height: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

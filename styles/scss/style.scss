@@ -29,6 +29,50 @@
   .ustensils {
     @include btn-dropdown($primary);
   }
+
+  .btn-ingredients {
+    @include btn(cornflowerblue);
+  }
+
+  .btn-appliance {
+    @include btn(rgb(117, 189, 117));
+  }
+
+  .btn-ustensils {
+    @include btn($primary);
+  }
+
+  .col-1 {
+    width: 12%;
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    width: 100%;
+    ul {
+      height: 1100px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+
+  button {
+    color: white;
+  }
+}
+
+.tag-ingredients {
+  @include tag(cornflowerblue);
+}
+
+.tag-appliance {
+  @include tag(rgb(117, 189, 117));
+}
+
+.tag-ustensils {
+  @include tag($primary);
 }
 
 .card {
@@ -51,42 +95,4 @@
       font-size: 0.8em;
     }
   }
-}
-
-.btn {
-  width: 100%;
-  input {
-    border: none;
-    border-radius: 0;
-    background-color: cornflowerblue;
-    color: white;
-    display: inline;
-    height: 20px;
-    width: 90%;
-    &::placeholder {
-      color: darken($color: white, $amount: 10);
-    }
-    &:focus {
-      border: none;
-      border-radius: 0;
-      background-color: cornflowerblue;
-      color: white;
-    }
-  }
-}
-
-.col-1 {
-  width: 12%;
-}
-
-.tag-ingredients {
-  @include tag(cornflowerblue);
-}
-
-.tag-appliance {
-  @include tag(rgb(117, 189, 117));
-}
-
-.tag-ustensils {
-  @include tag($primary);
 }

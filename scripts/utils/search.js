@@ -14,33 +14,39 @@ function searchRecipes(searchValue) {
   });
   let lastTag = tags[tags.length - 1];
 
-  // Si la recherche global contient 3 caractères ou plus, sans tag.
+  //Recherche global sans tags.
   if (searchValue.length >= 3 && tags.length == 0) {
     globalSearchRecipes = [];
     searchRecipesByGlobalSearch(recipes);
     displayRecipes(globalSearchRecipes);
     createFilterByType(globalSearchRecipes);
-    // Si la recherche ne contient que des tag.
+    //la recherche ne contient que des tag.
   } else if (searchValue.length < 3 && tags.length >= 1) {
+    //filtre toutes les recettes.
     if (searchValue.length < 3 && tags.length < 2) {
       searchRecipesByTags(recipes);
       displayRecipes(tagSearch);
       createFilterByType(tagSearch);
+      //filtre les recettes déja filtrées.
     } else {
       searchRecipesByTags(tagSearch);
       displayRecipes(tagSearch);
       createFilterByType(tagSearch);
     }
+    //Recherche global avec tags
   } else if (searchValue.length >= 3 && tags.length >= 1) {
+    //filtre les recettes à partir de la recherche global.
     if (tags.length == 1) {
       searchRecipesByTags(globalSearchRecipes);
       displayRecipes(tagSearch);
       createFilterByType(tagSearch);
     } else {
+      //filtre les recettes déja filtrées.
       searchRecipesByTags(tagSearch);
       displayRecipes(tagSearch);
       createFilterByType(tagSearch);
     }
+    //Aucune recherche
   } else if (searchValue.length < 3 && tags.length == 0) {
     displayAllRecipes();
     createFilterByType(recipes);

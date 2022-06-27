@@ -10,11 +10,30 @@
 }
 
 @mixin tag($bg-color) {
-    background-color: $bg-color;
-    width: 120px;
-    border-radius: 3px;
-    padding: 7px;
-    display: block;
+  background-color: $bg-color;
+  width: 120px;
+  border-radius: 3px;
+  padding: 7px;
+  display: block;
+  height: 50px;
+}
+
+@mixin btn($bg-color) {
+  width: 100%;
+  input {
+    border: none;
+    border-radius: 0;
     color: white;
-    height: 50px;
+    background-color: $bg-color;
+    display: inline;
+    height: 20px;
+    width: 90%;
+    &::placeholder {
+      color: white;
+    }
+    &:focus {
+      border: none;
+      border-radius: 0;
+    }
+  }
 }

@@ -12,67 +12,35 @@ function searchRecipes(searchValue) {
   tagList.forEach((tag) => {
     tags.push(tag.innerText);
   });
-  let lastTag = tags[tags.length - 1];
 
-  //Recherche global sans tags.
-  if (searchValue.length >= 3 && tags.length == 0) {
+  if (searchValue.length >= 3 && tags.length === 0) {
     globalSearchRecipes = [];
     searchRecipesByGlobalSearch(recipes);
     displayRecipes(globalSearchRecipes);
     createFilterByType(globalSearchRecipes);
-    //la recherche ne contient que des tag.
   } else if (searchValue.length < 3 && tags.length >= 1) {
-    //filtre toutes les recettes.
-    if (searchValue.length < 3 && tags.length < 2) {
-      searchRecipesByTags(recipes);
-      displayRecipes(tagSearch);
-      createFilterByType(tagSearch);
-      //filtre les recettes déja filtrées.
-    } else {
-      searchRecipesByTags(tagSearch);
-      displayRecipes(tagSearch);
-      createFilterByType(tagSearch);
-    }
-    //Recherche global avec tags
+      searchRecipesByTags(tags, recipes);
   } else if (searchValue.length >= 3 && tags.length >= 1) {
-    //filtre les recettes à partir de la recherche global.
-    if (tags.length == 1) {
-      searchRecipesByTags(globalSearchRecipes);
-      displayRecipes(tagSearch);
-      createFilterByType(tagSearch);
-    } else {
-      //filtre les recettes déja filtrées.
-      searchRecipesByTags(tagSearch);
-      displayRecipes(tagSearch);
-      createFilterByType(tagSearch);
-    }
-    //Aucune recherche
+    searchRecipesByTags(tags, globalSearchRecipes);
   } else if (searchValue.length < 3 && tags.length == 0) {
     displayAllRecipes();
     createFilterByType(recipes);
   }
 
-  function searchRecipesByTags(recipes) {
-    tagSearch = [];
-    recipes.forEach((recipe) => {
-      recipe.ingredients.find((ing) => {
-        if (ing.ingredient.toLowerCase() == lastTag.toLowerCase()) {
-          tagSearch.push(recipe);
-        }
-      });
-    });
-    recipes.forEach((recipe) => {
-      if (recipe.appliance.toLowerCase() == lastTag.toLowerCase()) {
-        tagSearch.push(recipe);
+  function searchRecipesByTags(tags, recipes) {
+    const recipesFiltered = [];
+    for (const recipe of recipes) {
+      const recipesInfo = [];
+      recipesInfo.push(...recipe.ingredients.map((i) => i.ingredient));
+      recipesInfo.push(recipe.appliance);
+      recipesInfo.push(...recipe.ustensils);
+      if (tags.every((t) => recipesInfo.includes(t))) {
+        console.log(tags);
+        recipesFiltered.push(recipe);
       }
-    });
-    recipes.forEach((recipe) => {
-      recipe.ustensils.find((ust) => {
-        if (ust.toLowerCase() == lastTag.toLowerCase()) {
-          tagSearch.push(recipe);
-        }
-      });
-    });
+    }
+    displayRecipes(recipesFiltered);
+    createFilterByType(recipesFiltered);
   }
 
   function searchRecipesByGlobalSearch(recipes) {

@@ -122,29 +122,19 @@ function createFilterByType(recipes) {
   }
 
   function createTag(filter, type) {
-    if (filter.className.toLowerCase().includes("ingredients")) {
-      displayTag(filter, type);
-    } else if (filter.className.toLowerCase().includes("appliance")) {
-      displayTag(filter, type);
-    } else {
-      displayTag(filter, type);
-    }
-
-    function displayTag(filter, type) {
-      const tagList = document.querySelector(".tag-list");
-      let text = filter.innerText.replace(/\s/g, "");
-      const tagElement = `<div class="tag-${type} d-flex justify-content-around align-items-center" id="tag-${text}">
+    const tagList = document.querySelector(".tag-list");
+    let text = filter.innerText.replace(/\s/g, "");
+    const tagElement = `<div class="tag-${type} d-flex justify-content-around align-items-center" id="tag-${text}">
         <span class="tag-${text} tag-item">${filter.innerText}</span>
         <i class="fa-solid fa-xmark cross" id="cross-${text}"></i>
         </div>`;
-      tagList.innerHTML += tagElement;
-      const crosses = document.querySelectorAll(".cross");
-      crosses.forEach((cross) => {
-        cross.addEventListener("click", () => {
-          removeTag(cross);
-        });
+    tagList.innerHTML += tagElement;
+    const crosses = document.querySelectorAll(".cross");
+    crosses.forEach((cross) => {
+      cross.addEventListener("click", () => {
+        removeTag(cross);
       });
-    }
+    });
 
     function removeTag(cross) {
       let tagName = cross.id.split("-")[1];

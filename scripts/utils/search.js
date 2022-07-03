@@ -19,7 +19,7 @@ function searchRecipes(searchValue) {
     displayRecipes(globalSearchRecipes);
     createFilterByType(globalSearchRecipes);
   } else if (searchValue.length < 3 && tags.length >= 1) {
-      searchRecipesByTags(tags, recipes);
+    searchRecipesByTags(tags, recipes);
   } else if (searchValue.length >= 3 && tags.length >= 1) {
     searchRecipesByTags(tags, globalSearchRecipes);
   } else if (searchValue.length < 3 && tags.length == 0) {
@@ -35,7 +35,6 @@ function searchRecipes(searchValue) {
       recipesInfo.push(recipe.appliance);
       recipesInfo.push(...recipe.ustensils);
       if (tags.every((t) => recipesInfo.includes(t))) {
-        console.log(tags);
         recipesFiltered.push(recipe);
       }
     }

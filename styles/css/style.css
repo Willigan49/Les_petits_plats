@@ -11286,4 +11286,82 @@ textarea.form-control-lg {
   font-size: 0.8em;
 }
 
+.btn-ingredients-opened {
+  width: 100%;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  height: 55px;
+}
+.btn-ingredients-opened input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: cornflowerblue;
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.btn-ingredients-opened input::placeholder {
+  color: white;
+}
+.btn-ingredients-opened input:focus {
+  border: none;
+  border-radius: 0;
+}
+.btn-ingredients-opened i {
+  color: white;
+}
+
+.btn-appliance-opened {
+  width: 100%;
+  background-color: rgb(117, 189, 117);
+  border-radius: 5px;
+  height: 55px;
+}
+.btn-appliance-opened input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: rgb(117, 189, 117);
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.btn-appliance-opened input::placeholder {
+  color: white;
+}
+.btn-appliance-opened input:focus {
+  border: none;
+  border-radius: 0;
+}
+.btn-appliance-opened i {
+  color: white;
+}
+
+.btn-ustensils-opened {
+  width: 100%;
+  background-color: #d04f4f;
+  border-radius: 5px;
+  height: 55px;
+}
+.btn-ustensils-opened input {
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: #d04f4f;
+  display: inline;
+  height: 20px;
+  width: 90%;
+}
+.btn-ustensils-opened input::placeholder {
+  color: white;
+}
+.btn-ustensils-opened input:focus {
+  border: none;
+  border-radius: 0;
+}
+.btn-ustensils-opened i {
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */

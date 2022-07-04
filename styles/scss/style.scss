@@ -96,3 +96,15 @@
     }
   }
 }
+
+.btn-ingredients-opened{
+  @include btn-opened(cornflowerblue);
+}
+
+.btn-appliance-opened{
+  @include btn-opened(rgb(117, 189, 117));
+}
+
+.btn-ustensils-opened{
+  @include btn-opened($primary);
+}

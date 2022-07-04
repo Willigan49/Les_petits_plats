@@ -80,9 +80,9 @@ function createFilterByType(recipes) {
 
   function changeSizeButton(type) {
     const button = document.querySelector(`.btn-${type}`);
+    const searchDiv = document.querySelector(`.btn-${type}-opened`)
     const searchFilter = document.querySelector(`.${type}-search`);
-    addOnclickEvent(button, searchFilter);
-    addOnclickEvent(searchFilter, searchFilter);
+    addOnclickEvent(button, searchDiv);
     const column = document.querySelector(`.${type}`);
     let word = "";
     switch (type) {
@@ -102,11 +102,12 @@ function createFilterByType(recipes) {
         break;
     }
 
-    function addOnclickEvent(element, searchFilter) {
-      element.onclick = () => {
+    function addOnclickEvent(button, searchDiv) {
+      button.onclick = () => {
         column.classList.remove("col-1");
         column.classList.add("col-6");
-        searchFilter.placeholder = `Rechercher des ${word}`;
+        button.style.display = "none";
+        searchDiv.classList.remove("d-none");
       };
     }
 
@@ -115,7 +116,8 @@ function createFilterByType(recipes) {
         if (event.target !== searchFilter) {
           column.classList.remove("col-6");
           column.classList.add("col-1");
-          searchFilter.placeholder = `${word}`;
+          button.style.display = "block";
+          searchDiv.classList.add("d-none");
         }
       }
     });

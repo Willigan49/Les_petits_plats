@@ -38,3 +38,29 @@
     }
   }
 }
+
+@mixin btn-opened($color) {
+  width: 100%;
+  background-color: $color;
+  border-radius: 5px;
+  height: 55px;
+  input {
+    border: none;
+    border-radius: 0;
+    color: white;
+    background-color: $color;
+    display: inline;
+    height: 20px;
+    width: 90%;
+    &::placeholder {
+      color: white;
+    }
+    &:focus {
+      border: none;
+      border-radius: 0;
+    }
+  }
+  i{
+    color: white;
+  }
+}
